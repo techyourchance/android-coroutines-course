@@ -1,0 +1,3 @@
+package com.techyourchance.coroutines.common.dependencyinjection
+
+class ApplicationCompositionRoot

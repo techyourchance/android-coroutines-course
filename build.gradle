@@ -1,0 +1,32 @@
+
+
+buildscript {
+    ext{
+        kotlin_version = '1.8.22'
+        coroutines_version = '1.6.4'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
