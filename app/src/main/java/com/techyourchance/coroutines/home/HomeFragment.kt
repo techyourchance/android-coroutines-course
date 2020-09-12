@@ -34,6 +34,7 @@ class HomeFragment : BaseFragment(), HomeArrayAdapter.Listener {
         when (screenReachableFromHome) {
             ScreenReachableFromHome.UI_THREAD_DEMO -> screensNavigator.toUiThreadDemo()
             ScreenReachableFromHome.BACKGROUND_THREAD_DEMO -> screensNavigator.toBackgroundThreadDemo()
+            ScreenReachableFromHome.BASIC_COROUTINES_DEMO -> screensNavigator.toBasicCoroutinesDemo()
         }
     }
 
