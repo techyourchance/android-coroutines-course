@@ -1,4 +1,4 @@
-package com.techyourchance.coroutines.demonstrations.basiccoroutines
+package com.techyourchance.coroutines.demonstrations.coroutinescancellation
 
 import android.os.Bundle
 import android.os.Handler
@@ -14,19 +14,18 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
 import com.techyourchance.coroutines.common.ThreadInfoLogger
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
-class BasicCoroutinesDemoFragment : BaseFragment() {
+class CoroutinesCancellationDemoFragment : BaseFragment() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main.immediate)
 
-    override val screenTitle get() = ScreenReachableFromHome.BASIC_COROUTINES_DEMO.description
+    override val screenTitle get() = ScreenReachableFromHome.COROUTINES_CANCELLATION_DEMO.description
 
     private lateinit var btnStart: Button
     private lateinit var txtRemainingTime: TextView
+
+    private var job: Job? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_loop_iterations_demo, container, false)
@@ -37,7 +36,7 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         btnStart.setOnClickListener {
             logThreadInfo("button callback")
 
-            coroutineScope.launch {
+            job = coroutineScope.launch {
                 btnStart.isEnabled = false
                 val iterationsCount = executeBenchmark()
                 Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
@@ -47,6 +46,13 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         }
 
         return view
+    }
+
+    override fun onStop() {
+        logThreadInfo("onStop()")
+        super.onStop()
+        job?.cancel()
+        btnStart.isEnabled = true
     }
 
     private suspend fun executeBenchmark(): Long {
@@ -90,7 +96,7 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
 
     companion object {
         fun newInstance(): Fragment {
-            return BasicCoroutinesDemoFragment()
+            return CoroutinesCancellationDemoFragment()
         }
     }
 }
