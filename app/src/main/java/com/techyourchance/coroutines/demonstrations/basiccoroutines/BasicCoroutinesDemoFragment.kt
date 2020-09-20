@@ -36,14 +36,14 @@ class BasicCoroutinesDemoFragment : BaseFragment() {
         btnStart = view.findViewById(R.id.btn_start)
         btnStart.setOnClickListener {
             logThreadInfo("button callback")
-            btnStart.isEnabled = false
 
             coroutineScope.launch {
+                btnStart.isEnabled = false
                 val iterationsCount = executeBenchmark()
                 Toast.makeText(requireContext(), "$iterationsCount", Toast.LENGTH_SHORT).show()
+                btnStart.isEnabled = true
             }
-            
-            btnStart.isEnabled = true
+
         }
 
         return view
