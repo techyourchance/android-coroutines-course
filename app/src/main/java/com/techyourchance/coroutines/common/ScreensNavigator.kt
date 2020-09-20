@@ -5,6 +5,7 @@ import com.ncapdevi.fragnav.FragNavController
 import com.ncapdevi.fragnav.FragNavController.RootFragmentListener
 import com.techyourchance.coroutines.demonstrations.backgroundthread.BackgroundThreadDemoFragment
 import com.techyourchance.coroutines.demonstrations.basiccoroutines.BasicCoroutinesDemoFragment
+import com.techyourchance.coroutines.demonstrations.coroutinescancellation.CoroutinesCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragment
 import com.techyourchance.coroutines.exercises.exercise1.Exercise1Fragment
 import com.techyourchance.coroutines.home.HomeFragment
@@ -59,6 +60,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toExercise1() {
         fragNavController.pushFragment(Exercise1Fragment.newInstance())
+    }
+
+    fun toCoroutinesCancellationDemo() {
+        fragNavController.pushFragment(CoroutinesCancellationDemoFragment.newInstance())
     }
 
 }
