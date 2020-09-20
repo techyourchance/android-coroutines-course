@@ -23,7 +23,7 @@ class BackgroundThreadDemoFragment : BaseFragment() {
     private lateinit var txtRemainingTime: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_ui_thread_demo, container, false)
+        val view = inflater.inflate(R.layout.fragment_loop_iterations_demo, container, false)
 
         txtRemainingTime = view.findViewById(R.id.txt_remaining_time)
 
