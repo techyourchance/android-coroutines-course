@@ -6,4 +6,5 @@ enum class ScreenReachableFromHome(val description: String) {
     BASIC_COROUTINES_DEMO("Basic Coroutines"),
     EXERCISE_1("Exercise 1"),
     COROUTINES_CANCELLATION_DEMO("Coroutines Cancellation"),
+    EXERCISE_2("Exercise 2"),
 }
