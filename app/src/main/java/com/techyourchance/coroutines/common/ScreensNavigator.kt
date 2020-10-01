@@ -7,6 +7,7 @@ import com.techyourchance.coroutines.demonstrations.backgroundthread.BackgroundT
 import com.techyourchance.coroutines.demonstrations.basiccoroutines.BasicCoroutinesDemoFragment
 import com.techyourchance.coroutines.demonstrations.concurrentcoroutines.ConcurrentCoroutinesDemoFragment
 import com.techyourchance.coroutines.demonstrations.coroutinescancellation.CoroutinesCancellationDemoFragment
+import com.techyourchance.coroutines.demonstrations.scopecancellation.ScopeCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.scopechildrencancellation.ScopeChildrenCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragment
 import com.techyourchance.coroutines.exercises.exercise1.Exercise1Fragment
@@ -84,6 +85,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toExercise3() {
         fragNavController.pushFragment(Exercise3Fragment.newInstance())
+    }
+
+    fun toScopeCancellation() {
+        fragNavController.pushFragment(ScopeCancellationDemoFragment.newInstance())
     }
 
 }
