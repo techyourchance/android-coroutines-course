@@ -3,13 +3,11 @@ package com.techyourchance.coroutines.demonstrations.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.techyourchance.coroutines.common.ThreadInfoLogger
 import kotlinx.coroutines.*
 
 class MyViewModel: ViewModel() {
-
-    private val coroutineScope = CoroutineScope(Dispatchers.Default)
-
     private val _elapsedTime = MutableLiveData<Long>()
     val elapsedTime: LiveData<Long> = _elapsedTime
 
@@ -26,7 +24,7 @@ class MyViewModel: ViewModel() {
         }
     }
 
-    private fun startTracking() = coroutineScope.launch {
+    private fun startTracking() = viewModelScope.launch {
         logThreadInfo("startTracking()")
         _isTrackingTime.postValue(true)
 
@@ -43,13 +41,7 @@ class MyViewModel: ViewModel() {
     private fun stopTracking() {
         logThreadInfo("stopTracking()")
         _isTrackingTime.postValue(false)
-        coroutineScope.coroutineContext.cancelChildren()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        coroutineScope.cancel()
-        // coroutineScope.coroutineContext.cancelChildren() // <- will also work here
+        viewModelScope.coroutineContext.cancelChildren()
     }
 
     private fun logThreadInfo(message: String) {
