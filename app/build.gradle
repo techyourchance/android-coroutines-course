@@ -43,6 +43,8 @@ dependencies {
 
     implementation 'com.ncapdevi:frag-nav:3.3.0'
 
+    implementation 'com.techyourchance.threadposter:threadposter:0.8.3'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
