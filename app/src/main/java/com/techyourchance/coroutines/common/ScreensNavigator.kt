@@ -14,6 +14,7 @@ import com.techyourchance.coroutines.demonstrations.viewmodel.ViewModelDemoFragm
 import com.techyourchance.coroutines.exercises.exercise1.Exercise1Fragment
 import com.techyourchance.coroutines.exercises.exercise2.Exercise2Fragment
 import com.techyourchance.coroutines.exercises.exercise3.Exercise3Fragment
+import com.techyourchance.coroutines.exercises.exercise4.Exercise4Fragment
 import com.techyourchance.coroutines.home.HomeFragment
 
 class ScreensNavigator(private val fragNavController: FragNavController) {
@@ -94,6 +95,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toViewModel() {
         fragNavController.pushFragment(ViewModelDemoFragment.newInstance())
+    }
+
+    fun toExercise4() {
+        fragNavController.pushFragment(Exercise4Fragment.newInstance())
     }
 
 }

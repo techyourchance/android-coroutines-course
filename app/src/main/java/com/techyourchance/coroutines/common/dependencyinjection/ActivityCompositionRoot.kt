@@ -6,6 +6,7 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.ScreensNavigator
 import com.techyourchance.coroutines.common.ToolbarDelegate
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
+import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 
 class ActivityCompositionRoot(
         private val activity: FragmentActivity,
@@ -23,5 +24,7 @@ class ActivityCompositionRoot(
     private val fragmentManager get() = activity.supportFragmentManager
 
     val getReputationEndpoint get() = GetReputationEndpoint()
+
+    val factorialUseCase get() = FactorialUseCase()
 
 }
