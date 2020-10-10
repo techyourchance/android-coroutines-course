@@ -5,6 +5,7 @@ import com.ncapdevi.fragnav.FragNavController
 import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.ScreensNavigator
 import com.techyourchance.coroutines.common.ToolbarDelegate
+import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 
@@ -26,5 +27,7 @@ class ActivityCompositionRoot(
     val getReputationEndpoint get() = GetReputationEndpoint()
 
     val factorialUseCase get() = FactorialUseCase()
+
+    val benchmarkUseCase get() = BenchmarkUseCase()
 
 }
