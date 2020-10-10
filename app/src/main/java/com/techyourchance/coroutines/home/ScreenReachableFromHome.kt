@@ -13,4 +13,5 @@ enum class ScreenReachableFromHome(val description: String) {
     SCOPE_CANCELLATION_DEMO("Scope Cancellation"),
     VIEWMODEL_DEMO("ViewModel"),
     EXERCISE_4("Exercise 4"),
+    DESIGN_DEMO("Design Demo"),
 }
