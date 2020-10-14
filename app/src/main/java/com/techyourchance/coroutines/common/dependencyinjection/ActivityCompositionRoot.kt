@@ -10,6 +10,8 @@ import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooper
 import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
+import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
+import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
 import com.techyourchance.coroutines.solutions.exercise5.GetReputationUseCase
 
 class ActivityCompositionRoot(
@@ -27,6 +29,8 @@ class ActivityCompositionRoot(
 
     private val fragmentManager get() = activity.supportFragmentManager
 
+    private val postBenchmarkResultsEndpoint get() = PostBenchmarkResultsEndpoint()
+
     val getReputationEndpoint get() = GetReputationEndpoint()
 
     val factorialUseCase get() = FactorialUseCase()
@@ -36,6 +40,8 @@ class ActivityCompositionRoot(
     val cancellableBenchmarkUseCase get() = CancellableBenchmarkUseCase()
 
     val blockingBenchmarkUseCase get() = BlockingBenchmarkUseCase()
+
+    val exercise6BenchmarkUseCase get() = Exercise6BenchmarkUseCase(postBenchmarkResultsEndpoint)
 
     val getReputationUseCase get() = GetReputationUseCase(getReputationEndpoint)
 }

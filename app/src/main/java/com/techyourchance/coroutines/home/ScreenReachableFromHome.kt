@@ -17,4 +17,5 @@ enum class ScreenReachableFromHome(val description: String) {
     EXERCISE_5("Exercise 5"),
     COROUTINES_CANCELLATION_COOPERATIVE_DEMO("Coroutines Cancellation Cooperative"),
     COROUTINES_CANCELLATION_COOPERATIVE_2_DEMO("Coroutines Cancellation Cooperative 2"),
+    EXERCISE_6("Exercise 6"),
 }
