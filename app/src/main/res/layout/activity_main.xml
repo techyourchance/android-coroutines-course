@@ -38,8 +38,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="25sp"/>
+                android:textSize="22sp"/>
 
         </RelativeLayout>
 
