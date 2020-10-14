@@ -6,6 +6,7 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.ScreensNavigator
 import com.techyourchance.coroutines.common.ToolbarDelegate
 import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative.CancellableBenchmarkUseCase
+import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative2.BlockingBenchmarkUseCase
 import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
@@ -33,6 +34,8 @@ class ActivityCompositionRoot(
     val benchmarkUseCase get() = BenchmarkUseCase()
 
     val cancellableBenchmarkUseCase get() = CancellableBenchmarkUseCase()
+
+    val blockingBenchmarkUseCase get() = BlockingBenchmarkUseCase()
 
     val getReputationUseCase get() = GetReputationUseCase(getReputationEndpoint)
 }
