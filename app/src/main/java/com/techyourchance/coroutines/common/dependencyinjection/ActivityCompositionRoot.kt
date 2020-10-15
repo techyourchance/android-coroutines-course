@@ -13,6 +13,7 @@ import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
 import com.techyourchance.coroutines.solutions.exercise5.GetReputationUseCase
+import com.techyourchance.coroutines.solutions.exercise6.Exercise6SolutionBenchmarkUseCase
 
 class ActivityCompositionRoot(
         private val activity: FragmentActivity,
@@ -42,6 +43,8 @@ class ActivityCompositionRoot(
     val blockingBenchmarkUseCase get() = BlockingBenchmarkUseCase()
 
     val exercise6BenchmarkUseCase get() = Exercise6BenchmarkUseCase(postBenchmarkResultsEndpoint)
+
+    val exercise6SolutionBenchmarkUseCase get() = Exercise6SolutionBenchmarkUseCase(postBenchmarkResultsEndpoint)
 
     val getReputationUseCase get() = GetReputationUseCase(getReputationEndpoint)
 }
