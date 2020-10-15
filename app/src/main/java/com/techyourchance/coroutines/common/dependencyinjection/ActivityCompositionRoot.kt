@@ -8,6 +8,9 @@ import com.techyourchance.coroutines.common.ToolbarDelegate
 import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative.CancellableBenchmarkUseCase
 import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative2.BlockingBenchmarkUseCase
 import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
+import com.techyourchance.coroutines.demonstrations.noncancellable.CustomersDao
+import com.techyourchance.coroutines.demonstrations.noncancellable.MakeCustomerPremiumUseCase
+import com.techyourchance.coroutines.demonstrations.noncancellable.PremiumCustomersEndpoint
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
@@ -32,6 +35,10 @@ class ActivityCompositionRoot(
 
     private val postBenchmarkResultsEndpoint get() = PostBenchmarkResultsEndpoint()
 
+    private val premiumCustomersEndpoint get() = PremiumCustomersEndpoint()
+
+    private val customersDao get() = CustomersDao()
+
     val getReputationEndpoint get() = GetReputationEndpoint()
 
     val factorialUseCase get() = FactorialUseCase()
@@ -47,4 +54,6 @@ class ActivityCompositionRoot(
     val exercise6SolutionBenchmarkUseCase get() = Exercise6SolutionBenchmarkUseCase(postBenchmarkResultsEndpoint)
 
     val getReputationUseCase get() = GetReputationUseCase(getReputationEndpoint)
+
+    val makeCustomerPremiumUseCase get() = MakeCustomerPremiumUseCase(premiumCustomersEndpoint, customersDao)
 }
