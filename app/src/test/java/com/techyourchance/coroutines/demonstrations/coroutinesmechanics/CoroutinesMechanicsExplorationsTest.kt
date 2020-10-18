@@ -25,4 +25,20 @@ class CoroutinesMechanicsExplorationsTest {
             println("test done")
         }
     }
+
+    @Test
+    fun coroutineScope_launchAndChangeContext() {
+        runBlocking {
+            val scopeJob = Job()
+            val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
+            scope.printCoroutineScopeInfo()
+            val job = scope.launch(CoroutineName("my coroutine") + Dispatchers.Default) {
+                this.printCoroutineScopeInfo()
+                delay(100)
+                println("coroutine done")
+            }
+            job.join()
+            println("test done")
+        }
+    }
 }
