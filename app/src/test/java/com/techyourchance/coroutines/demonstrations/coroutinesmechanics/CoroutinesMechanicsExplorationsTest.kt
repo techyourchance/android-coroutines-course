@@ -121,6 +121,36 @@ class CoroutinesMechanicsExplorationsTest {
     }
 
 
+    @Test
+    fun coroutinesCancellationMechanicsNonCancellable() {
+        runBlocking {
+            val scopeJob = Job()
+            val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
+            val job = scope.launch(CoroutineName("my coroutine") + Dispatchers.Default) {
+                try {
+                    delay(100)
+                    withContext(NonCancellable + CoroutineName("withContext") + Dispatchers.IO) {
+                        try {
+                            printJobsHierarchy(scopeJob)
+                            delay(100)
+                            println("withContext done")
+                        } catch (e: CancellationException) {
+                            println("withContext cancelled")
+                        }
+                    }
+                    println("coroutine done")
+                } catch (e: CancellationException) {
+                    println("coroutine cancelled")
+                }
+            }
+            scope.launch(CoroutineName("my additional coroutine")) {
+                delay(150)
+                scopeJob.cancel()
+            }
+            job.join()
+            println("test done")
+        }
+    }
 
 
 }
