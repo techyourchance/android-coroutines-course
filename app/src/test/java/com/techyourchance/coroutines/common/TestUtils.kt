@@ -19,6 +19,9 @@ object TestUtils {
         for (childJob in job.children) {
             printJobsHierarchy(childJob, nestLevel + 1)
         }
+        if (nestLevel == 0) {
+            println()
+        }
     }
 
 }
