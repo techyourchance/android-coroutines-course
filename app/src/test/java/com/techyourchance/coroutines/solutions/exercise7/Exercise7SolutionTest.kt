@@ -20,7 +20,7 @@ class Exercise7SolutionTest {
         runBlocking {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
-            scope.launch(CoroutineName("coroutine")) {
+            val job = scope.launch(CoroutineName("coroutine")) {
                 delay(1000)
                 try {
                     withContext(CoroutineName("withContext") + Dispatchers.Default) {
@@ -51,7 +51,7 @@ class Exercise7SolutionTest {
                 delay(2500)
                 scope.cancel()
             }
-            scopeJob.join()
+            job.join()
             println("test done")
         }
     }
@@ -65,7 +65,7 @@ class Exercise7SolutionTest {
         runBlocking {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
-            scope.launch(CoroutineName("coroutine")) {
+            val job = scope.launch(CoroutineName("coroutine")) {
                 delay(1000)
                 try {
                     withContext(CoroutineName("withContext") + Dispatchers.Default) {
@@ -95,7 +95,7 @@ class Exercise7SolutionTest {
                 delay(2500)
                 scope.cancel()
             }
-            scopeJob.join()
+            job.join()
             println("test done")
         }
     }
@@ -109,7 +109,7 @@ class Exercise7SolutionTest {
         runBlocking {
             val scopeJob = Job()
             val scope = CoroutineScope(scopeJob + CoroutineName("outer scope") + Dispatchers.IO)
-            scope.launch(CoroutineName("coroutine")) {
+            val job = scope.launch(CoroutineName("coroutine")) {
                 delay(1000)
                 try {
                     withContext(CoroutineName("withContext") + Dispatchers.Default) {
@@ -140,7 +140,7 @@ class Exercise7SolutionTest {
                 delay(2500)
                 scope.cancel()
             }
-            scopeJob.join()
+            job.join()
             println("test done")
         }
     }
