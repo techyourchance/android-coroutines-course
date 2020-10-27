@@ -11,6 +11,9 @@ import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
 import com.techyourchance.coroutines.demonstrations.noncancellable.CustomersDao
 import com.techyourchance.coroutines.demonstrations.noncancellable.MakeCustomerPremiumUseCase
 import com.techyourchance.coroutines.demonstrations.noncancellable.PremiumCustomersEndpoint
+import com.techyourchance.coroutines.exercises.exercise8.FetchAndCacheUsersUseCase
+import com.techyourchance.coroutines.exercises.exercise8.GetUserEndpoint
+import com.techyourchance.coroutines.exercises.exercise8.UsersDao
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
@@ -39,6 +42,10 @@ class ActivityCompositionRoot(
 
     private val customersDao get() = CustomersDao()
 
+    private val getUserEndpoint get() = GetUserEndpoint()
+
+    private val usersDao get() = UsersDao()
+
     val getReputationEndpoint get() = GetReputationEndpoint()
 
     val factorialUseCase get() = FactorialUseCase()
@@ -56,4 +63,6 @@ class ActivityCompositionRoot(
     val getReputationUseCase get() = GetReputationUseCase(getReputationEndpoint)
 
     val makeCustomerPremiumUseCase get() = MakeCustomerPremiumUseCase(premiumCustomersEndpoint, customersDao)
+
+    val fetchAndCacheUserUseCase get() = FetchAndCacheUsersUseCase(getUserEndpoint, usersDao)
 }

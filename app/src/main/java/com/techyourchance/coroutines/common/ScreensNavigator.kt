@@ -11,6 +11,7 @@ import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooper
 import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative2.CoroutinesCancellationCooperative2DemoFragment
 import com.techyourchance.coroutines.demonstrations.design.DesignDemoFragment
 import com.techyourchance.coroutines.demonstrations.noncancellable.NonCancellableDemoFragment
+import com.techyourchance.coroutines.exercises.exercise8.Exercise8Fragment
 import com.techyourchance.coroutines.demonstrations.scopecancellation.ScopeCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.scopechildrencancellation.ScopeChildrenCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragment
@@ -129,6 +130,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toNonCancellable() {
         fragNavController.pushFragment(NonCancellableDemoFragment.newInstance())
+    }
+
+    fun toParallelDecomposition() {
+        fragNavController.pushFragment(Exercise8Fragment.newInstance())
     }
 
 }
