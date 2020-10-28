@@ -22,6 +22,7 @@ import com.techyourchance.coroutines.exercises.exercise3.Exercise3Fragment
 import com.techyourchance.coroutines.exercises.exercise4.Exercise4Fragment
 import com.techyourchance.coroutines.exercises.exercise5.Exercise5Fragment
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6Fragment
+import com.techyourchance.coroutines.exercises.exercise9.Exercise9Fragment
 import com.techyourchance.coroutines.home.HomeFragment
 
 class ScreensNavigator(private val fragNavController: FragNavController) {
@@ -132,8 +133,12 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
         fragNavController.pushFragment(NonCancellableDemoFragment.newInstance())
     }
 
-    fun toParallelDecomposition() {
+    fun toExercise8() {
         fragNavController.pushFragment(Exercise8Fragment.newInstance())
+    }
+
+    fun toExercise9() {
+        fragNavController.pushFragment(Exercise9Fragment.newInstance())
     }
 
 }
