@@ -50,7 +50,8 @@ class HomeFragment : BaseFragment(), HomeArrayAdapter.Listener {
             ScreenReachableFromHome.COROUTINES_CANCELLATION_COOPERATIVE_2_DEMO -> screensNavigator.toCoroutinesCancellationCooperative2Demo()
             ScreenReachableFromHome.EXERCISE_6 -> screensNavigator.toExercise6()
             ScreenReachableFromHome.NON_CANCELLABLE_DEMO -> screensNavigator.toNonCancellable()
-            ScreenReachableFromHome.EXERCISE_8 -> screensNavigator.toParallelDecomposition()
+            ScreenReachableFromHome.EXERCISE_8 -> screensNavigator.toExercise8()
+            ScreenReachableFromHome.EXERCISE_9 -> screensNavigator.toExercise9()
         }
     }
 
