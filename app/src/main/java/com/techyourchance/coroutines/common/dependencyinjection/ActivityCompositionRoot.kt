@@ -22,6 +22,7 @@ import com.techyourchance.coroutines.exercises.exercise9.FetchAndCacheUsersUseCa
 import com.techyourchance.coroutines.solutions.exercise5.GetReputationUseCase
 import com.techyourchance.coroutines.solutions.exercise6.Exercise6SolutionBenchmarkUseCase
 import com.techyourchance.coroutines.solutions.exercise8.Exercise8SolutionFetchAndCacheUsersUseCase
+import com.techyourchance.coroutines.solutions.exercise9.FetchAndCacheUsersUseCaseSolutionExercise9
 
 class ActivityCompositionRoot(
         private val activity: FragmentActivity,
@@ -71,5 +72,7 @@ class ActivityCompositionRoot(
     val exercise8SolutionFetchAndCacheUserUseCase get() = Exercise8SolutionFetchAndCacheUsersUseCase(getUserEndpoint, usersDao)
 
     val fetchAndCacheUserUseCaseExercise9 get() = FetchAndCacheUsersUseCaseExercise9(getUserEndpoint, usersDao)
+
+    val fetchAndCacheUserUseCaseSolutionExercise9 get() = FetchAndCacheUsersUseCaseSolutionExercise9(getUserEndpoint, usersDao)
 
 }
