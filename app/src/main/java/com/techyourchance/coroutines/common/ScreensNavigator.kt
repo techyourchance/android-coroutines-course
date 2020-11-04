@@ -15,6 +15,7 @@ import com.techyourchance.coroutines.exercises.exercise8.Exercise8Fragment
 import com.techyourchance.coroutines.demonstrations.scopecancellation.ScopeCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.scopechildrencancellation.ScopeChildrenCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragment
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.UncaughtExceptionDemoFragment
 import com.techyourchance.coroutines.demonstrations.viewmodel.ViewModelDemoFragment
 import com.techyourchance.coroutines.exercises.exercise1.Exercise1Fragment
 import com.techyourchance.coroutines.exercises.exercise2.Exercise2Fragment
@@ -139,6 +140,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toExercise9() {
         fragNavController.pushFragment(Exercise9Fragment.newInstance())
+    }
+
+    fun toUncaughtException() {
+        fragNavController.pushFragment(UncaughtExceptionDemoFragment.newInstance())
     }
 
 }

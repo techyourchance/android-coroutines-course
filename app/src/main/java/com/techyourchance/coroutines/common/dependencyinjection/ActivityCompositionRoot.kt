@@ -11,6 +11,9 @@ import com.techyourchance.coroutines.demonstrations.design.BenchmarkUseCase
 import com.techyourchance.coroutines.demonstrations.noncancellable.CustomersDao
 import com.techyourchance.coroutines.demonstrations.noncancellable.MakeCustomerPremiumUseCase
 import com.techyourchance.coroutines.demonstrations.noncancellable.PremiumCustomersEndpoint
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginEndpointUncaughtException
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.UserStateManager
 import com.techyourchance.coroutines.exercises.exercise8.FetchAndCacheUsersUseCase
 import com.techyourchance.coroutines.exercises.exercise8.GetUserEndpoint
 import com.techyourchance.coroutines.exercises.exercise8.UsersDao
@@ -49,6 +52,10 @@ class ActivityCompositionRoot(
 
     private val usersDao get() = UsersDao()
 
+    private val loginEndpointUncaughtException get() = LoginEndpointUncaughtException()
+
+    private val userStateManager get() = UserStateManager()
+
     val getReputationEndpoint get() = GetReputationEndpoint()
 
     val factorialUseCase get() = FactorialUseCase()
@@ -74,5 +81,7 @@ class ActivityCompositionRoot(
     val fetchAndCacheUserUseCaseExercise9 get() = FetchAndCacheUsersUseCaseExercise9(getUserEndpoint, usersDao)
 
     val fetchAndCacheUserUseCaseSolutionExercise9 get() = FetchAndCacheUsersUseCaseSolutionExercise9(getUserEndpoint, usersDao)
+
+    val loginUseCaseUncaughtException get() = LoginUseCaseUncaughtException(loginEndpointUncaughtException, userStateManager)
 
 }
