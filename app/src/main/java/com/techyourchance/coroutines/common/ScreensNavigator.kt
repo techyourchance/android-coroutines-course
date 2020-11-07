@@ -18,6 +18,7 @@ import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragmen
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.UncaughtExceptionDemoFragment
 import com.techyourchance.coroutines.demonstrations.viewmodel.ViewModelDemoFragment
 import com.techyourchance.coroutines.exercises.exercise1.Exercise1Fragment
+import com.techyourchance.coroutines.exercises.exercise10.Exercise10Fragment
 import com.techyourchance.coroutines.exercises.exercise2.Exercise2Fragment
 import com.techyourchance.coroutines.exercises.exercise3.Exercise3Fragment
 import com.techyourchance.coroutines.exercises.exercise4.Exercise4Fragment
@@ -144,6 +145,10 @@ class ScreensNavigator(private val fragNavController: FragNavController) {
 
     fun toUncaughtException() {
         fragNavController.pushFragment(UncaughtExceptionDemoFragment.newInstance())
+    }
+
+    fun toExercise10() {
+        fragNavController.pushFragment(Exercise10Fragment.newInstance())
     }
 
 }
