@@ -1,10 +1,7 @@
 package com.techyourchance.coroutines.exercises.exercise4
 
-import java.math.BigInteger
-
-import androidx.annotation.WorkerThread
 import kotlinx.coroutines.*
-import java.util.concurrent.TimeUnit
+import java.math.BigInteger
 
 class FactorialUseCase {
 

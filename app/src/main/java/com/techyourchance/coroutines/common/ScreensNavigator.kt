@@ -11,7 +11,6 @@ import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooper
 import com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative2.CoroutinesCancellationCooperative2DemoFragment
 import com.techyourchance.coroutines.demonstrations.design.DesignDemoFragment
 import com.techyourchance.coroutines.demonstrations.noncancellable.NonCancellableDemoFragment
-import com.techyourchance.coroutines.exercises.exercise8.Exercise8Fragment
 import com.techyourchance.coroutines.demonstrations.scopecancellation.ScopeCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.scopechildrencancellation.ScopeChildrenCancellationDemoFragment
 import com.techyourchance.coroutines.demonstrations.uithread.UiThreadDemoFragment
@@ -24,6 +23,7 @@ import com.techyourchance.coroutines.exercises.exercise3.Exercise3Fragment
 import com.techyourchance.coroutines.exercises.exercise4.Exercise4Fragment
 import com.techyourchance.coroutines.exercises.exercise5.Exercise5Fragment
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6Fragment
+import com.techyourchance.coroutines.exercises.exercise8.Exercise8Fragment
 import com.techyourchance.coroutines.exercises.exercise9.Exercise9Fragment
 import com.techyourchance.coroutines.home.HomeFragment
 

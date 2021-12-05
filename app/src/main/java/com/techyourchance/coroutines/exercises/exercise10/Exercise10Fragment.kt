@@ -14,10 +14,12 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoggedInUser
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException
-import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException.*
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException.Result
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
-import kotlinx.coroutines.*
-import java.lang.Exception
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.launch
 
 class Exercise10Fragment : BaseFragment() {
 

@@ -1,8 +1,7 @@
 package com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative2
 
-import com.techyourchance.coroutines.common.ThreadInfoLogger
 import com.techyourchance.coroutines.common.ThreadInfoLogger.logThreadInfo
-import kotlinx.coroutines.*
+import kotlinx.coroutines.ensureActive
 import kotlin.coroutines.coroutineContext
 
 class BlockingBenchmarkUseCase {
