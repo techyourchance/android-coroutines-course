@@ -1,9 +1,8 @@
 package com.techyourchance.coroutines.demonstrations.noncancellable
 
-import com.techyourchance.coroutines.common.ThreadInfoLogger
-import com.techyourchance.coroutines.common.ThreadInfoLogger.logThreadInfo
-import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.withContext
 
 class MakeCustomerPremiumUseCase(
         private val premiumCustomersEndpoint: PremiumCustomersEndpoint,

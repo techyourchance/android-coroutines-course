@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.techyourchance.coroutines.common.ThreadInfoLogger
-import kotlinx.coroutines.*
+import kotlinx.coroutines.cancelChildren
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MyViewModel: ViewModel() {
     private val _elapsedTime = MutableLiveData<Long>()

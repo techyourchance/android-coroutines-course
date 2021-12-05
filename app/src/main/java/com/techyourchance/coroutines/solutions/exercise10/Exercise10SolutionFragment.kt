@@ -14,10 +14,9 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoggedInUser
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException
-import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException.*
+import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCaseUncaughtException.Result
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
 import kotlinx.coroutines.*
-import java.lang.Exception
 
 class Exercise10SolutionFragment : BaseFragment() {
 

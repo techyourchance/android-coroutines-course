@@ -1,14 +1,11 @@
 package com.techyourchance.coroutines.demonstrations.structuredconcurrency.java;
 
-import android.os.Handler;
-import android.os.Looper;
+import androidx.annotation.WorkerThread;
 
 import com.techyourchance.threadposter.BackgroundThreadPoster;
 import com.techyourchance.threadposter.UiThreadPoster;
 
 import java.math.BigInteger;
-
-import androidx.annotation.WorkerThread;
 
 class FibonacciUseCaseAsyncUiThreadPoster {
 

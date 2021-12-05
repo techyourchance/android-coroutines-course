@@ -3,7 +3,6 @@ package com.techyourchance.coroutines.demonstrations.uncaughtexception
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
-import java.lang.RuntimeException
 import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 

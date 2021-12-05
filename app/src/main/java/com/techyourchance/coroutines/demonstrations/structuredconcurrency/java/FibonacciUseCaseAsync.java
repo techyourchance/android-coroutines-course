@@ -1,8 +1,8 @@
 package com.techyourchance.coroutines.demonstrations.structuredconcurrency.java;
 
-import java.math.BigInteger;
-
 import androidx.annotation.WorkerThread;
+
+import java.math.BigInteger;
 
 class FibonacciUseCaseAsync {
 

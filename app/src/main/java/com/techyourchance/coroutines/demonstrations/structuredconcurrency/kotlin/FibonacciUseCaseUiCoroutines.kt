@@ -1,6 +1,7 @@
 package com.techyourchance.coroutines.demonstrations.structuredconcurrency.kotlin
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.math.BigInteger
 
 internal class FibonacciUseCaseUiCoroutines() {

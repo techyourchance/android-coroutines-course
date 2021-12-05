@@ -1,6 +1,5 @@
 package com.techyourchance.coroutines.demonstrations.coroutinescancellationcooperative
 
-import com.techyourchance.coroutines.common.ThreadInfoLogger
 import com.techyourchance.coroutines.common.ThreadInfoLogger.logThreadInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
