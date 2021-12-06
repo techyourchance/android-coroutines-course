@@ -10,6 +10,6 @@ class GetReputationEndpoint {
         ThreadInfoLogger.logThreadInfo("GetReputationEndpoint#getReputation(): called")
         Thread.sleep(3000)
         ThreadInfoLogger.logThreadInfo("GetReputationEndpoint#getReputation(): return data")
-        return@withContext Random.nextInt(0, 100)
+        Random.nextInt(0, 100)
     }
 }
