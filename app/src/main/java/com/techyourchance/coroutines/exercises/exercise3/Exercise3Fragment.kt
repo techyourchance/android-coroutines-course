@@ -58,7 +58,7 @@ class Exercise3Fragment : BaseFragment() {
         btnGetReputation = view.findViewById(R.id.btn_get_reputation)
         btnGetReputation.setOnClickListener {
 
-            coroutineScope.launch {
+            ellapsedTimeJob = coroutineScope.launch {
                 val startTime = System.currentTimeMillis()
                 while (true) {
                     val elapsedTime = System.currentTimeMillis() - startTime
