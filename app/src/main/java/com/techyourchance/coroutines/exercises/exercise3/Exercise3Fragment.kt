@@ -59,11 +59,11 @@ class Exercise3Fragment : BaseFragment() {
         btnGetReputation.setOnClickListener {
 
             ellapsedTimeJob = coroutineScope.launch {
-                var elapsedTime = 0L
+                val startTime = System.currentTimeMillis()
                 while (true) {
+                    val elapsedTime = System.currentTimeMillis() - startTime
                     txtElapsedTime.text = elapsedTime.toString()
-                    elapsedTime += Companion.UPDATE_ELAPSED_TIME_DELAY
-                    delay(Companion.UPDATE_ELAPSED_TIME_DELAY)
+                    delay(100)
                 }
             }
             logThreadInfo("button callback")
@@ -100,7 +100,5 @@ class Exercise3Fragment : BaseFragment() {
         fun newInstance(): Fragment {
             return Exercise3Fragment()
         }
-
-        private const val UPDATE_ELAPSED_TIME_DELAY = 100L
     }
 }
