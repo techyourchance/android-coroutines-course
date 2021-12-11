@@ -30,16 +30,16 @@ class FactorialUseCase {
 
     private fun getComputationRanges(factorialArgument: Int): Array<ComputationRange> {
         val numberOfThreads = getNumberOfThreads(factorialArgument)
-
         val threadsComputationRanges = Array(numberOfThreads) { ComputationRange(0, 0) }
 
-        val computationRangeSize = ceil(factorialArgument / numberOfThreads.toDouble()).toLong()
-
-        for (i in 0 until numberOfThreads) {
-            val rangeStart = computationRangeSize * i + 1
-            val rangeEnd = (rangeStart + computationRangeSize - 1).coerceAtMost(factorialArgument.toLong())
-
-            threadsComputationRanges[i] = ComputationRange(rangeStart, rangeEnd)
+        val ranges = (1..factorialArgument).chunked(factorialArgument / numberOfThreads + 1)
+        repeat(numberOfThreads) { index ->
+            val (rangeStart, rangeEnd) = if (ranges.isNotEmpty()) {
+                ranges[index].first().toLong() to ranges[index].last().toLong()
+            } else {
+                1L to 1L
+            }
+            threadsComputationRanges[index] = ComputationRange(rangeStart, rangeEnd)
         }
 
         return threadsComputationRanges.reversedArray()
