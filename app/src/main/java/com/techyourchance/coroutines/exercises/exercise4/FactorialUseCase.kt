@@ -2,15 +2,16 @@ package com.techyourchance.coroutines.exercises.exercise4
 
 import kotlinx.coroutines.*
 import java.math.BigInteger
+import kotlin.math.ceil
 
 class FactorialUseCase {
 
-    public sealed class Result {
+    sealed class Result {
         class Success(val result: BigInteger) : Result()
         object Timeout : Result()
     }
 
-    suspend fun computeFactorial(argument: Int, timeout: Int) : Result = withContext(Dispatchers.IO) {
+    suspend fun computeFactorial(argument: Int, timeout: Int): Result = withContext(Dispatchers.IO) {
         try {
             withTimeout(timeMillis = timeout.toLong()) {
                 val computationRanges = getComputationRanges(argument)
@@ -21,33 +22,27 @@ class FactorialUseCase {
 
                 Result.Success(result)
             }
-        } catch (e : TimeoutCancellationException) {
+        } catch (e: TimeoutCancellationException) {
             Result.Timeout
         }
 
     }
 
-    private fun getComputationRanges(factorialArgument: Int) : Array<ComputationRange> {
+    private fun getComputationRanges(factorialArgument: Int): Array<ComputationRange> {
         val numberOfThreads = getNumberOfThreads(factorialArgument)
 
         val threadsComputationRanges = Array(numberOfThreads) { ComputationRange(0, 0) }
 
-        val computationRangeSize = factorialArgument / numberOfThreads
+        val computationRangeSize = ceil(factorialArgument / numberOfThreads.toDouble()).toLong()
 
-        var nextComputationRangeEnd = factorialArgument.toLong()
+        for (i in 0 until numberOfThreads) {
+            val rangeStart = computationRangeSize * i + 1
+            val rangeEnd = (rangeStart + computationRangeSize - 1).coerceAtMost(factorialArgument.toLong())
 
-        for (i in numberOfThreads - 1 downTo 0) {
-            threadsComputationRanges[i] = ComputationRange(
-                    nextComputationRangeEnd - computationRangeSize + 1,
-                    nextComputationRangeEnd
-            )
-            nextComputationRangeEnd = threadsComputationRanges[i].start - 1
+            threadsComputationRanges[i] = ComputationRange(rangeStart, rangeEnd)
         }
 
-        // add potentially "remaining" values to first thread's range
-        //threadsComputationRanges[0] = ComputationRange(1, threadsComputationRanges[0].end)
-
-        return threadsComputationRanges
+        return threadsComputationRanges.reversedArray()
     }
 
     private fun getNumberOfThreads(factorialArgument: Int): Int {
@@ -57,7 +52,7 @@ class FactorialUseCase {
             Runtime.getRuntime().availableProcessors()
     }
 
-    private suspend fun computePartialProducts(computationRanges: Array<ComputationRange>) : List<BigInteger> = coroutineScope {
+    private suspend fun computePartialProducts(computationRanges: Array<ComputationRange>): List<BigInteger> = coroutineScope {
         return@coroutineScope withContext(Dispatchers.IO) {
             return@withContext computationRanges.map {
                 computeProductForRangeAsync(it)
@@ -65,7 +60,7 @@ class FactorialUseCase {
         }
     }
 
-    private fun CoroutineScope.computeProductForRangeAsync(computationRange: ComputationRange) : Deferred<BigInteger> = async(Dispatchers.IO) {
+    private fun CoroutineScope.computeProductForRangeAsync(computationRange: ComputationRange): Deferred<BigInteger> = async(Dispatchers.IO) {
         val rangeStart = computationRange.start
         val rangeEnd = computationRange.end
 
