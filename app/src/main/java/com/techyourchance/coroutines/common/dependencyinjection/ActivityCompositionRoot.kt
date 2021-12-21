@@ -16,6 +16,7 @@ import com.techyourchance.coroutines.demonstrations.uncaughtexception.LoginUseCa
 import com.techyourchance.coroutines.demonstrations.uncaughtexception.UserStateManager
 import com.techyourchance.coroutines.exercises.exercise1.GetReputationEndpoint
 import com.techyourchance.coroutines.exercises.exercise4.FactorialUseCase
+import com.techyourchance.coroutines.exercises.exercise5.GetMyReputationUseCase
 import com.techyourchance.coroutines.exercises.exercise6.Exercise6BenchmarkUseCase
 import com.techyourchance.coroutines.exercises.exercise6.PostBenchmarkResultsEndpoint
 import com.techyourchance.coroutines.exercises.exercise8.FetchAndCacheUsersUseCase
@@ -45,6 +46,8 @@ class ActivityCompositionRoot(
     private val postBenchmarkResultsEndpoint get() = PostBenchmarkResultsEndpoint()
 
     private val premiumCustomersEndpoint get() = PremiumCustomersEndpoint()
+
+    val getMyReputationUseCase = GetMyReputationUseCase(getReputationEndpoint)
 
     private val customersDao get() = CustomersDao()
 
