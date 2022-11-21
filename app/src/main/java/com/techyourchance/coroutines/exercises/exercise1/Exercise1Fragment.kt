@@ -1,11 +1,11 @@
 package com.techyourchance.coroutines.exercises.exercise1
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,6 +14,10 @@ import com.techyourchance.coroutines.R
 import com.techyourchance.coroutines.common.BaseFragment
 import com.techyourchance.coroutines.common.ThreadInfoLogger
 import com.techyourchance.coroutines.home.ScreenReachableFromHome
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class Exercise1Fragment : BaseFragment() {
 
@@ -46,20 +50,20 @@ class Exercise1Fragment : BaseFragment() {
         btnGetReputation = view.findViewById(R.id.btn_get_reputation)
         btnGetReputation.setOnClickListener {
             logThreadInfo("button callback")
-            btnGetReputation.isEnabled = false
-            getReputationForUser(edtUserId.text.toString())
-            btnGetReputation.isEnabled = true
+            CoroutineScope(Dispatchers.Main.immediate).launch {
+                btnGetReputation.isEnabled = false
+                val reputation = getReputationForUser(edtUserId.text.toString())
+                btnGetReputation.isEnabled = true
+                Toast.makeText(requireContext(), "reputation: $reputation", Toast.LENGTH_SHORT).show()
+            }
         }
-
         return view
     }
 
-    private fun getReputationForUser(userId: String) {
-        logThreadInfo("getReputationForUser()")
-
-        val reputation = getReputationEndpoint.getReputation(userId)
-
-        Toast.makeText(requireContext(), "reputation: $reputation", Toast.LENGTH_SHORT).show()
+    private suspend fun getReputationForUser(userId: String): Int {
+        return withContext(Dispatchers.Default) {
+            logThreadInfo("getReputationForUser()")
+            getReputationEndpoint.getReputation(userId)}
     }
 
     private fun logThreadInfo(message: String) {
